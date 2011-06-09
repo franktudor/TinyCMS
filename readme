@@ -1,0 +1,52 @@
+Read me:
+
+First thanks for downloading and checking out my latest creation called TinyCMS.  I hope you have fun playing with the code and possibly use it to create your website.
+
+There are certain parts that I am adding so check the repository often for changes.
+
+There are some globals that need to be set first.
+
+If you locate the Application.cfm file you will see what you need to change and what is important to change.
+
+//rename your application (can be your domain name :))
+application.mySiteName = "TinyCMS";
+
+/*tookit user name and password*/
+application.username = 'username';
+application.password = 'password';
+
+You will need to have coldfusion developer installed to run this (or some sort of cold fusion hosting solution (I may bundle railo with this so it can be run on a USB key chain or something).  It was initally being developed on Railo but reading back files and folders need to be managed to Railo standards.
+
+When you copy these files and folders to the wwwroot of your coldfusion serviced server whether it be Apache or IIS (or integrated Coldfusion server), you will want to go to the http://YourSiteorLocalhost/TinyCMS/index.cfm file to see if it resolves.  Note because of dependancies if you rename the core directory or change it you will need to rebuild your files which can be done in your toolkit dashboard.
+
+toolkit location is:
+
+http://YourSiteorLocalhost/TinyCMS/toolkit/
+
+There is a website called http://www.csszengarden.com/ where I grabbed the basic template HTML skeleton to base my keyfile off of. I have severy truncated the structure to get a lot of ancellary stuff pulled out.  I have examples of different CCS files you can apply to see the potential of the design control you have.  Although the styles have been altered significantly you can still see the basic package over at the site.  Those tempales cannot be used, they can however be a foundation for your own unique design.  Also a note the site has not been updated since 2008 but it is still very relevant for fundamental understanding of design with CSS.
+
+I will be implimenting a blog roll widget so you can link your blog rss and it will create a nice scroll through your blog post to liven things up.  However I need to do some extensive treatment on loook and feel variables and I don't have time ATM.  How ever if you want to get this part ready prior to my next update.  visit your evt_getfeed.cfm under the events folder and look for:
+
+<cfhttp url="http://gemlogiccorp.com/mango/feeds/rss.cfm" method="GET" charset="utf-8"></cfhttp>
+
+and point it to your Blog RSS page...one if my blogs is in there for an example so you can see what you are looking for...
+
+Uder scripts there is a file called monkey.  it is actually FCKEditor, While creting your pages you may want to add images for the images directory.  When you click the icon the tool won't show you the link that says "browse server" until you close the dialog box and click it again.
+
+This is a bug that I haven't got around to fixing.  Just FYI if your files don't show youmight want to ask your hosting comapny if they have something inplace to prevent you from doing image linking with FCKEditor, also I have not tested this on shared hosting so I don't know if it will work.
+
+For good measure I have placed a simple authorization check in the CF tools under the monky directory so people don't access them directly (I need most other scripts to be loose/free access).
+
+All other ancellary folders and files have been deleted (so I am using just the ones I need).
+
+Additionally I have tested this tool back and forth between a wwwroot directory and a subdirectory.  Files only go one level deep (I wanted to generate a flatter footprint with the file generation.
+
+Ok next is the site map functions.  I have a sample in the root directory, as you build your pages you'll want to click your sitemap button to generate a fresh page. Additionally everything you update an existing page you will need to clear the cache by clicking the clear cache  button in the toolkit.  You will go insane if you make changes and don't do this.  FYI I added Caching to speed page load. I may revisit this in the future...However if you generate or update a page using the pageGenerate tool I clear the cache automatically.
+
+Lets talk about the social media stuff I have added.  The guys over at addtoany.com created a great tool to use when all the social media noise is concerned.  However, load times we getting boggy so I have implimented a local copy of the tool set.  Head over to addtoany.com to get some insight on how all this works because it is pretty nice.  One Caveat, they want you to make sure you get updated files regularly and they want your email and url for your site.  Please do this to stay legit with the addtoany folks...The _social/index.cfm is custimized for the site so be careful if you want to alter stuff that is important to you.  I will try to automate someof this in the future.
+
+So my FYI is: this is a work in progress to help me keep my skills sharp and I am sharing it with you.  
+
+If you want me to add something or find a bug let me know or if you have questions feel free to contact me at frank_tudor@yahoo.com
+
+Thanks for playing with TinyCMS
